@@ -450,7 +450,11 @@
   // $.error breaks jQuery chaining
   var logError = function( message ) {
     if ( window.console ) {
-      window.console.error( message );
+      if (window.console.error) {
+				window.console.error(message);
+			} else if (window.console.log) {
+				window.console.log(message);
+			}
     }
   };
   
